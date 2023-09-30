@@ -1,6 +1,35 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-        "url": ""
-    }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/airline.csv"
+  },
+  "mark": "circle",
+  "encoding": {
+    "x": {
+      "field": "Departure Date",
+      "type": "temporal",
+      "title": "Departure Date"
+    },
+    "y": {
+      "field": "Age",
+      "type": "quantitative",
+      "title": "Age"
+    },
+    "color": {
+      "field": "Continents",
+      "type": "nominal",
+      "title": "Continent"
+    },
+    "tooltip": [                
+      {"field": "Pilot Name", "title": "Pilot Name"},
+      {"field": "Gender", "title": "Passenger Gender"},
+      {"field": "Age", "title": "Passenger Age"},
+      {"field": "Nationality", "title": "Nationality"},
+      {"field": "Flight Status", "title": "Flight Status"},
+      {"field": "Airport Name", "title": "Airport Name"},
+      {"field": "Country Name", "title": "Country Name"}
+    ]
+  },
+  "width": 800,
+  "height": 400
 }
