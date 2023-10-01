@@ -3,53 +3,158 @@
   "data": {
     "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/airline.csv"
   },
-  "transform": [
+  "vconcat": [
     {
-      "timeUnit": "month",
-      "field": "Departure Date",
-      "as": "Month of Departure"
+      "width": 600,
+      "height": 400,
+      "transform": [
+        {
+          "timeUnit": "month",
+          "field": "Departure Date",
+          "as": "Month of Departure"
+        },
+        {
+          "calculate": "timeFormat(datum['Month of Departure'], '%B')",
+          "as": "Month Name"
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Month Name",
+          "type": "ordinal",
+          "title": "Month of Departure",
+          "sort": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+          ]
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Number of Flights"
+        },
+        "color": {
+          "field": "Continents",
+          "type": "nominal",
+          "title": "Continent"
+        },
+        "tooltip": [
+          {
+            "field": "Month Name",
+            "type": "nominal",
+            "title": "Month of Departure"
+          },
+          {
+            "field": "Continents",
+            "title": "Continent"
+          },
+          {
+            "field": "count()",
+            "type": "quantitative",
+            "title": "Flights per Continent",
+            "aggregate": "count",
+            "groupby": [
+              "Continents"
+            ]
+          }
+        ]
+      }
     },
     {
-      "calculate": "timeFormat(datum['Month of Departure'], '%B')",
-      "as": "Month Name"
+      "width": 600,
+      "height": 400,
+      "transform": [
+        {
+          "timeUnit": "month",
+          "field": "Departure Date",
+          "as": "Month of Departure"
+        },
+        {
+          "calculate": "timeFormat(datum['Month of Departure'], '%B')",
+          "as": "Month Name"
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Month Name",
+          "type": "ordinal",
+          "title": "Month of Departure",
+          "sort": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+          ]
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Number of Flights"
+        },
+        "color": {
+          "field": "Continents",
+          "type": "nominal",
+          "title": "Continent"
+        },
+        "tooltip": [
+          {
+            "field": "Month Name",
+            "type": "nominal",
+            "title": "Month of Departure"
+          },
+          {
+            "field": "Continents",
+            "title": "Continent"
+          },
+          {
+            "field": "count()",
+            "type": "quantitative",
+            "title": "Flights per Continent",
+            "aggregate": "count",
+            "groupby": [
+              "Continents"
+            ]
+          }
+        ]
+      }
     }
   ],
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "field": "Month Name",
-      "type": "ordinal",
-      "title": "Month of Departure",
-      "sort": [
-        "January", "February", "March", "April", "May", "June", 
-        "July", "August", "September", "October", "November", "December"
-      ]
-    },
-    "y": {
-      "aggregate": "count",
-      "type": "quantitative",
-      "title": "Number of Flights"
-    },
-    "color": {
-      "field": "Continents",
-      "type": "nominal",
-      "title": "Continent"
-    },
-    "tooltip": [                
-      {"field": "Month Name", "type": "nominal", "title": "Month of Departure"},
-      {"field": "Continents", "title": "Continent"},
-      {"field": "count()", "type": "quantitative", "title": "Flights per Continent", "aggregate": "count", "groupby": ["Continents"]}
-    ]
-  },
-  "width": 800,
-  "height": 400, 
   "selection": {
     "continent_selection": {
-      "type": "single", 
-      "fields": ["Continents"], 
+      "type": "single",
+      "fields": [
+        "Continents"
+      ],
       "bind": {
-        "input": "select", 
-        "options": ["Africa", "Asia", "Europe", "North America", "Oceania", "South America"]
+        "input": "select",
+        "options": [
+          "Africa",
+          "Asia",
+          "Europe",
+          "North America",
+          "Oceania",
+          "South America"
+        ]
       }
     }
   }
