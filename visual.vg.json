@@ -3,17 +3,32 @@
   "data": {
     "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/airline.csv"
   },
-  "mark": "circle",
+  "transform": [
+    {
+      "timeUnit": "month",
+      "field": "Departure Date",
+      "as": "Month of Departure"
+    },
+    {
+      "calculate": "timeFormat(datum['Month of Departure'], '%B')",
+      "as": "Month Name"
+    }
+  ],
+  "mark": "bar",
   "encoding": {
     "x": {
-      "field": "Departure Date",
-      "type": "temporal",
-      "title": "Departure Date"
+      "field": "Month Name",
+      "type": "ordinal",
+      "title": "Month of Departure",
+      "sort": [
+        "January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December"
+      ]
     },
     "y": {
-      "field": "Age",
+      "aggregate": "count",
       "type": "quantitative",
-      "title": "Age"
+      "title": "Number of Flights"
     },
     "color": {
       "field": "Continents",
@@ -21,13 +36,9 @@
       "title": "Continent"
     },
     "tooltip": [                
-      {"field": "Pilot Name", "title": "Pilot Name"},
-      {"field": "Gender", "title": "Passenger Gender"},
-      {"field": "Age", "title": "Passenger Age"},
-      {"field": "Nationality", "title": "Nationality"},
-      {"field": "Flight Status", "title": "Flight Status"},
-      {"field": "Airport Name", "title": "Airport Name"},
-      {"field": "Country Name", "title": "Country Name"}
+      {"field": "Month Name", "type": "nominal", "title": "Month of Departure"},
+      {"field": "Continents", "title": "Continent"},
+      {"field": "count()", "type": "quantitative", "title": "Flights per Continent", "aggregate": "count", "groupby": ["Continents"]}
     ]
   },
   "width": 800,
