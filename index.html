@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Interactive Vega-Lite Graph</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Interactive Vega-Lite Graph</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
 </head>
+
 <body>
-    <h1>Flight Data by Continent</h1>
-    <!-- Selection box for continents -->
-    <label for="continent-select">Select Continent:</label>
-    <select id="continent-select">
-      <option value="Asia">Asia</option>
-      <option value="Africa">Africa</option>
-      <option value="North America">North America</option>
-      <option value="South America">South America</option>
-      <option value="Europe">Europe</option>
-      <option value="Oceania">Oceania</option>
-      <option value="Antarctica">Antarctica</option>
-    </select>
-    <!-- Container for the Vega-Lite graph -->
-    <div id="vis"></div>
-    <!-- Include Vega and Vega-Lite scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <!-- Include your Vega-Lite specification -->
-    <script src="visual.vg.json"></script>
-    <!-- Include JavaScript for interactivity -->
-    <script src="script.js"></script>
+  <h1>Number of Monthly Flights per Continent (2022-2023)</h1>
+
+  <div id="vega-graph"></div>
+  <script>
+    //embed vega
+    vegaEmbed("#vega-graph", "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual.vg.json")
+    .then((result) => console.log(result))
+    .catch((error) => console.log(error))
+  </script>
 </body>
+
 </html>
