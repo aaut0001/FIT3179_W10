@@ -42,5 +42,15 @@
     ]
   },
   "width": 800,
-  "height": 400
+  "height": 400, 
+  "selection": {
+    "continent_selection": {
+      "type": "single", 
+      "fields": ["Continents"], 
+      "bind": {
+        "input": "select", 
+        "options": ["Africa", "Asia", "Europe", "North America", "Oceania", "South America"]
+      }
+    }
+  }
 }

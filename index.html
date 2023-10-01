@@ -15,10 +15,15 @@
   <h1>Number of Monthly Flights per Continent (2022-2023)</h1>
 
   <div id="vega-graph"></div>
+  <div id=""second-vega-graph></div>
   <script>
     //embed vega
     vegaEmbed("#vega-graph", "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual.vg.json")
-    .then((result) => console.log(result))
+    .then((result) => {
+      vegaEmbed("#second-vega-graph", "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual2.vg.json")
+      .then((secondResult) => console.log(secondResult))
+      .catch((error) => console.log(error))
+    })
     .catch((error) => console.log(error))
   </script>
 </body>
