@@ -47,7 +47,8 @@
         "color": {
           "field": "Continents",
           "type": "nominal",
-          "title": "Continent"
+          "title": "Continent",
+          "legend": {"title": "Continents"}
         },
         "tooltip": [
           {
@@ -74,57 +75,27 @@
     {
       "width": 600,
       "height": 400,
-      "transform": [
-        {
-          "timeUnit": "month",
-          "field": "Departure Date",
-          "as": "Month of Departure"
-        },
-        {
-          "calculate": "timeFormat(datum['Month of Departure'], '%B')",
-          "as": "Month Name"
-        }
-      ],
       "mark": "bar",
       "encoding": {
         "x": {
-          "field": "Month Name",
-          "type": "ordinal",
-          "title": "Month of Departure",
-          "sort": [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-          ]
+          "field": "Country Name",
+          "type": "nominal",
+          "title": "Country of Departure"
         },
         "y": {
           "aggregate": "count",
           "type": "quantitative",
           "title": "Number of Flights"
         },
-        "color": {
-          "field": "Continents",
-          "type": "nominal",
-          "title": "Continent"
-        },
         "tooltip": [
           {
-            "field": "Month Name",
+            "field": "Country Name",
             "type": "nominal",
-            "title": "Month of Departure"
+            "title": "Country of Departure"
           },
           {
-            "field": "Continents",
-            "title": "Continent"
+            "field": "Country Name",
+            "title": "Country Name"
           },
           {
             "field": "count()",
@@ -132,7 +103,7 @@
             "title": "Flights per Continent",
             "aggregate": "count",
             "groupby": [
-              "Continents"
+              "Country"
             ]
           }
         ]
