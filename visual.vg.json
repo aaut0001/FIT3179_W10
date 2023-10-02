@@ -80,12 +80,14 @@
         "x": {
           "field": "Country Name",
           "type": "nominal",
-          "title": "Country of Departure"
+          "title": "Country of Departure",
+          "sort": "-y"
         },
         "y": {
           "aggregate": "count",
           "type": "quantitative",
-          "title": "Number of Flights"
+          "title": "Number of Flights",
+          "scale": {"type": "log", "base": 2}
         },
         "tooltip": [
           {
@@ -103,7 +105,7 @@
             "title": "Flights per Continent",
             "aggregate": "count",
             "groupby": [
-              "Country"
+              "Country Name"
             ]
           }
         ]
