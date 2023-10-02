@@ -7,6 +7,9 @@
     {
       "width": 600,
       "height": 400,
+      "params": [
+        {"name": "select", "select": {"type": "point", "encodings": ["x"]}}
+      ],
       "transform": [
         {
           "timeUnit": "month",
@@ -37,7 +40,8 @@
             "October",
             "November",
             "December"
-          ]
+          ],
+          "scale": {"domain": {"param": "select"}}
         },
         "y": {
           "aggregate": "count",
