@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-</head>
-<body>
-    <!-- Container for the Vega-Lite chart -->
-    <div id="vega-chart"></div>
 
-    <script>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body>
+  <div style="display: flex;">
+    <!-- Left column for the Vega-Lite chart -->
+    <div style="flex: 1;">
+      <!-- Container for the Vega-Lite chart -->
+      <div id="vega-chart"></div>
+
+      <script>
         // URL to your Vega-Lite specification hosted on GitHub
         const vegaLiteSpecURL = "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual.vg.json";
 
@@ -18,15 +23,25 @@
 
         // Embed the Vega-Lite chart from the URL into the specified container
         vegaEmbed(container, vegaLiteSpecURL)
-            .then((result) => {
-                // Handle the result if needed (e.g., add interactivity)
-                const view = result.view;
+          .then((result) => {
+            // Handle the result if needed (e.g., add interactivity)
+            const view = result.view;
 
-                // You can add interactivity or further customization here
-            })
-            .catch((error) => {
-                console.error("Error embedding Vega-Lite chart:", error);
-            });
-    </script>
+            // You can add interactivity or further customization here
+          })
+          .catch((error) => {
+            console.error("Error embedding Vega-Lite chart:", error);
+          });
+      </script>
+    </div>
+
+    <!-- Right column for the embedded graph from another repo -->
+    <div style="flex: 1;">
+      <!-- Embed the graph from another GitHub repository using an iframe -->
+      <iframe src="https://raw.githubusercontent.com/aaut0001/FIT3179_A2/main/w9homework.vg.json" width="100%"
+        height="400px"></iframe>
+    </div>
+  </div>
 </body>
+
 </html>

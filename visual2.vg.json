@@ -1,0 +1,81 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 550,
+    "title": "Airport Density Dot Plot (2023)",
+    "projection": {
+        "type": "equalEarth"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_A2/main/ne_110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "darkgray",
+                "stroke": "white"
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
+                "format": { "type": "topojson", "feature": "ne_110m_graticules_30"}
+            }, 
+            "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_A2/main/airport_info.csv"
+            },
+            "mark": {
+                "type": "circle",
+                "color": "red"
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "Longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "value": 15
+                },
+                "tooltip": [
+                    {
+                        "field": "Airport Name",
+                        "title": "Airport Name"
+                    },
+                    {
+                        "field": "Frequency",
+                        "title": "Frequency"
+                    },
+                    {
+                        "field": "Latitude",
+                        "title": "Latitude"
+                    },
+                    {
+                        "field": "Longitude",
+                        "title": "Longitude"
+                    }
+                ],
+                "color": {
+                    "field": "Frequency",
+                    "type": "quantitative",
+                    "title": "Number of Visits",
+                    "scale": {
+                        "domain": [0, 10, 20],
+                        "range": ["pink", "red", "black"]
+                    }
+                }
+            }
+        }
+    ]
+}

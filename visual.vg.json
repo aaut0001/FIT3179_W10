@@ -66,8 +66,8 @@
     },
     {
       "width": 600,
-      "height": 200,
-      "mark": "bar",
+      "height": 400,
+      "mark": "area", 
       "encoding": {
         "x": {
           "field": "Month Name",
@@ -89,7 +89,7 @@
           ]
         },
         "y": {
-          "aggregate": "sum",
+          "aggregate": "sum", 
           "type": "quantitative",
           "title": "Total Number of Flights"
         },
