@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "URL_TO_YOUR_MODIFIED_DATA.csv"
+    },
+    "transform": [
+      {"window": [{"op": "rank", "field": "Total Flights", "as": "Rank"}], "sort": [{"field": "Total Flights", "order": "descending"}]},
+      {"filter": {"field": "Rank", "lte": 3}}, 
+      {"calculate": "datum['Country Name']+' ('+datum['Total Flights']+')'", "as": "Country Name"}
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Country Name",
+        "type": "ordinal",
+        "title": "Country"
+      },
+      "y": {
+        "field": "Total Flights",
+        "type": "quantitative",
+        "title": "Total Flights"
+      },
+      "column": {
+        "field": "Continents",
+        "type": "nominal"
+      },
+      "tooltip": [
+        {
+          "field": "Country Name",
+          "type": "nominal",
+          "title": "Country"
+        },
+        {
+          "field": "Total Flights",
+          "type": "quantitative",
+          "title": "Total Flights"
+        }
+      ]
+    },
+    "config": {
+      "view": {"stroke": "transparent"}
+    },
+    "width": 400,
+    "height": 200
+  }
+  
