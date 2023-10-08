@@ -1,26 +1,25 @@
 // JavaScript code for Vega-Lite interactivity
 // Load the Vega-Lite specification and set up event listeners
-const select = document.getElementById("continent-select");
-const visContainer = document.getElementById("vis");
+const visContainer = document.getElementById("vega-chart");
 
-// Load the Vega-Lite specification from the visual.vg.json script
-const spec = vegaLiteSpec; // This references the Vega-Lite spec from visual.vg.json
+// URL to your Vega-Lite specification hosted on GitHub
+const vegaLiteSpecURL = "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual.vg.json";
 
 // Initialize Vega-Embed and render the initial graph
-vegaEmbed(visContainer, spec);
+vegaEmbed(visContainer, vegaLiteSpecURL)
+    .then((result) => {
+        // Handle the result if needed (e.g., add interactivity)
+        const view = result.view;
 
-// Add event listener for continent selection
-select.addEventListener("change", () => {
-  // Get the selected continent
-  const selectedContinent = select.value;
-
-  // Update the filter in the Vega-Lite specification to make other continents transparent
-  spec.transform = [
-    {
-      filter: { field: "Continents", equal: selectedContinent }
-    }
-  ];
-
-  // Re-render the graph with the updated specification
-  vegaEmbed(visContainer, spec);
-});
+        // Add event listener for brushing on the x-axis
+        view.addEventListener("brush", (event, item) => {
+            if (item && item.datum) {
+                const { MonthName } = item.datum;
+                // Handle the selected month(s) here
+                console.log("Selected Month(s):", MonthName);
+            }
+        });
+    })
+    .catch((error) => {
+        console.error("Error embedding Vega-Lite chart:", error);
+    });
