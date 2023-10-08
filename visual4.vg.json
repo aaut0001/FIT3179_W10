@@ -1,0 +1,41 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/modified_airline.csv"
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {"op": "count", "as": "Total Passengers"}
+        ],
+        "groupby": ["Month Name"]
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Month Name",
+        "type": "ordinal",
+        "title": "Month",
+        "sort": "-y"
+      },
+      "y": {
+        "field": "Total Passengers",
+        "type": "quantitative",
+        "title": "Total Passengers"
+      },
+      "tooltip": [
+        {
+          "field": "Month Name",
+          "type": "nominal",
+          "title": "Month"
+        },
+        {
+          "field": "Total Passengers",
+          "type": "quantitative",
+          "title": "Total Passengers"
+        }
+      ]
+    }
+  }
+  

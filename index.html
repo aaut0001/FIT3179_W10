@@ -4,15 +4,41 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            background-color: #fff1df; /* Replace with your desired skin tone color code */
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .chart-container {
+            width: 50%;
+            float: left;
+        }
+
+        .chart-container.full-width {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <!-- Container for the first Vega-Lite chart (left column) -->
-    <div id="vega-chart1" style="float: left; width: 50%;"></div>
+    <h1>Interactive Stacked Bar Chart</h1>
+    <div class="chart-container" id="vega-chart1"></div>
 
     <!-- Container for the second Vega-Lite chart (right column) -->
-    <div id="vega-chart2" style="float: right; width: 50%;"></div>
+    <h1>Global Density Dot Plot</h1>
+    <div class="chart-container" id="vega-chart2"></div>
 
-    <div id="vega-chart3" style="float: right; width: 50%;"></div>
+    <div class="clearfix"></div>
+
+    <!-- Container for the third Vega-Lite chart (full-width) -->
+    <h1>Ranked Continent Multiple Bar Charts</h1>
+    <div class="chart-container full-width" id="vega-chart3"></div>
 
     <script>
         // URL to your first Vega-Lite specification hosted on GitHub
@@ -51,16 +77,16 @@
                 console.error("Error embedding Vega-Lite chart 2:", error);
             });
         const vegaLiteSpecURL3 = "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual3.vg.json"
-        // Container element for the second Vega-Lite chart
+        // Container element for the third Vega-Lite chart
         const container3 = document.getElementById("vega-chart3");
 
-        // Embed the second Vega-Lite chart from the URL into the specified container
+        // Embed the third Vega-Lite chart from the URL into the specified container
         vegaEmbed(container3, vegaLiteSpecURL3)
             .then((result) => {
                 // Handle the result if needed (e.g., add interactivity)
                 const view = result.view;
 
-                // You can add interactivity or further customization here for the second chart
+                // You can add interactivity or further customization here for the third chart
             })
             .catch((error) => {
                 console.error("Error embedding Vega-Lite chart 3:", error);
