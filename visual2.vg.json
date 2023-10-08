@@ -18,6 +18,21 @@
             "mark": {
                 "type": "geoshape",
                 "fill": "darkgray",
+                "fillOpacity": 0.8,
+                "stroke": "white"
+            }
+        }, 
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/ne_110m%20(6).json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_ocean"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "blue",
                 "stroke": "white"
             }
         },
