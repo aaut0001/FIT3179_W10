@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
-
 <body>
-  <div style="display: flex;">
-    <!-- Left column for the Vega-Lite chart -->
-    <div style="flex: 1;">
-      <!-- Container for the Vega-Lite chart -->
-      <div id="vega-chart"></div>
+    <!-- Container for the first Vega-Lite chart (left column) -->
+    <div id="vega-chart1" style="float: left; width: 50%;"></div>
 
-      <script>
-        // URL to your Vega-Lite specification hosted on GitHub
-        const vegaLiteSpecURL = "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual.vg.json";
+    <!-- Container for the second Vega-Lite chart (right column) -->
+    <div id="vega-chart2" style="float: right; width: 50%;"></div>
 
-        // Container element for the Vega-Lite chart
-        const container = document.getElementById("vega-chart");
+    <script>
+        // URL to your first Vega-Lite specification hosted on GitHub
+        const vegaLiteSpecURL1 = "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual.vg.json";
 
-        // Embed the Vega-Lite chart from the URL into the specified container
-        vegaEmbed(container, vegaLiteSpecURL)
-          .then((result) => {
-            // Handle the result if needed (e.g., add interactivity)
-            const view = result.view;
+        // Container element for the first Vega-Lite chart
+        const container1 = document.getElementById("vega-chart1");
 
-            // You can add interactivity or further customization here
-          })
-          .catch((error) => {
-            console.error("Error embedding Vega-Lite chart:", error);
-          });
-      </script>
-    </div>
+        // Embed the first Vega-Lite chart from the URL into the specified container
+        vegaEmbed(container1, vegaLiteSpecURL1)
+            .then((result) => {
+                // Handle the result if needed (e.g., add interactivity)
+                const view = result.view;
 
-    <!-- Right column for the embedded graph from another repo -->
-    <div style="flex: 1;">
-      <!-- Embed the graph from another GitHub repository using an iframe -->
-      <iframe src="https://raw.githubusercontent.com/aaut0001/FIT3179_A2/main/w9homework.vg.json" width="100%"
-        height="400px"></iframe>
-    </div>
-  </div>
+                // You can add interactivity or further customization here for the first chart
+            })
+            .catch((error) => {
+                console.error("Error embedding Vega-Lite chart 1:", error);
+            });
+
+        // URL to your second Vega-Lite specification hosted on GitHub
+        const vegaLiteSpecURL2 = "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual2.vg.json";
+
+        // Container element for the second Vega-Lite chart
+        const container2 = document.getElementById("vega-chart2");
+
+        // Embed the second Vega-Lite chart from the URL into the specified container
+        vegaEmbed(container2, vegaLiteSpecURL2)
+            .then((result) => {
+                // Handle the result if needed (e.g., add interactivity)
+                const view = result.view;
+
+                // You can add interactivity or further customization here for the second chart
+            })
+            .catch((error) => {
+                console.error("Error embedding Vega-Lite chart 2:", error);
+            });
+    </script>
 </body>
-
 </html>

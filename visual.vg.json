@@ -5,7 +5,7 @@
   },
   "vconcat": [
     {
-      "width": 600,
+      "width": 400,
       "height": 400,
       "mark": "bar",
       "selection": {
@@ -65,7 +65,7 @@
       }
     },
     {
-      "width": 600,
+      "width": 400,
       "height": 400,
       "mark": "area", 
       "encoding": {
