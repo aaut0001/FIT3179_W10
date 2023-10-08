@@ -114,9 +114,9 @@
           ]
         },
         "y": {
-          "aggregate": "count",
+          "aggregate": "sum",
           "type": "quantitative",
-          "title": "Number of Flights"
+          "title": "Total Number of Flights"
         },
         "color": {
           "field": "Continents",
@@ -135,11 +135,12 @@
             "title": "Continent"
           },
           {
-            "field": "count()",
+            "field": "sum(count())",
             "type": "quantitative",
-            "title": "Flights per Continent",
-            "aggregate": "count",
+            "title": "Total Flights",
+            "aggregate": "sum",
             "groupby": [
+              "Month Name",
               "Continents"
             ]
           }
