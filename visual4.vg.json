@@ -3,6 +3,8 @@
     "data": {
       "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/modified_airline.csv"
     },
+    "width": 600,
+    "height": 400,
     "transform": [
       {
         "aggregate": [
