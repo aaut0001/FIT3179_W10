@@ -12,6 +12,8 @@
     <!-- Container for the second Vega-Lite chart (right column) -->
     <div id="vega-chart2" style="float: right; width: 50%;"></div>
 
+    <div id="vega-chart3" style="float: right; width: 50%;"></div>
+
     <script>
         // URL to your first Vega-Lite specification hosted on GitHub
         const vegaLiteSpecURL1 = "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual.vg.json";
@@ -47,6 +49,21 @@
             })
             .catch((error) => {
                 console.error("Error embedding Vega-Lite chart 2:", error);
+            });
+        const vegaLiteSpecURL3 = "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/visual3.vg.json"
+        // Container element for the second Vega-Lite chart
+        const container3 = document.getElementById("vega-chart3");
+
+        // Embed the second Vega-Lite chart from the URL into the specified container
+        vegaEmbed(container3, vegaLiteSpecURL3)
+            .then((result) => {
+                // Handle the result if needed (e.g., add interactivity)
+                const view = result.view;
+
+                // You can add interactivity or further customization here for the second chart
+            })
+            .catch((error) => {
+                console.error("Error embedding Vega-Lite chart 3:", error);
             });
     </script>
 </body>
