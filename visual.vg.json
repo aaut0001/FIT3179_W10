@@ -3,129 +3,61 @@
   "data": {
     "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/modified_airline.csv"
   },
-  "hconcat": [
+  "width": 680,
+  "height": 400,
+  "mark": "bar",
+  "transform": [
     {
-      "width": 400,
-      "height": 400,
-      "mark": "bar",
-      "selection": {
-        "brush": {"type": "interval", "encodings": ["x"]}
-      },
-      "encoding": {
-        "x": {
-          "field": "Month Name",
-          "type": "ordinal",
-          "title": "Month of Departure",
-          "sort": [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-          ]
-        },
-        "y": {
-          "aggregate": "count",
-          "type": "quantitative",
-          "title": "Number of Flights"
-        },
-        "color": {
-          "field": "Continents",
-          "type": "nominal",
-          "title": "Continent",
-          "legend": {"title": "Continents"}
-        },
-        "tooltip": [
-          {
-            "field": "Month Name",
-            "type": "nominal",
-            "title": "Month of Departure"
-          },
-          {
-            "field": "Continents",
-            "title": "Continent"
-          },
-          {
-            "field": "count()",
-            "type": "quantitative",
-            "title": "Flights per Continent",
-            "aggregate": "count",
-            "groupby": [
-              "Continents"
-            ]
-          }
-        ]
-      }
+      "timeUnit": "month", 
+      "field": "Departure Date",
+      "as": "Month"
     },
     {
-      "width": 400,
-      "height": 400,
-      "mark": "area", 
-      "encoding": {
-        "x": {
-          "field": "Month Name",
-          "type": "ordinal",
-          "title": "Month of Departure",
-          "sort": [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-          ]
-        },
-        "y": {
-          "aggregate": "sum", 
-          "type": "quantitative",
-          "title": "Total Number of Flights"
-        },
-        "color": {
-          "field": "Continents",
-          "type": "nominal",
-          "title": "Continent",
-          "legend": {"title": "Continents"}
-        },
-        "tooltip": [
-          {
-            "field": "Month Name",
-            "type": "nominal",
-            "title": "Month of Departure"
-          },
-          {
-            "field": "Continents",
-            "title": "Continent"
-          },
-          {
-            "field": "sum(count())",
-            "type": "quantitative",
-            "title": "Total Flights",
-            "aggregate": "sum",
-            "groupby": [
-              "Month Name",
-              "Continents"
-            ]
-          }
-        ],
-        "transform": [
-          {
-            "filter": {"selection": "brush"}
-          }
-        ]
-      }
+      "aggregate": [
+        {
+          "op": "count", 
+          "as": "Flight Count"
+        }
+      ],
+      "groupby": ["Month Name", "Continents"]
     }
-  ]
+  ],
+  "encoding": {
+    "x": {
+      "field": "Month Name",
+      "type": "nominal", 
+      "axis": {
+        "title": "Month", 
+        "labelAngle": 45
+      }
+    },
+    "y": {
+      "aggregate": "sum", 
+      "field": "Flight Count", 
+      "type": "quantitative", 
+      "axis": {
+        "title": "Number of Flights"
+      }
+    },
+    "color": {
+      "field": "Continents", 
+      "type": "nominal", 
+      "scale": {
+        "scheme": "tableau10"
+      },
+      "legend": {
+        "title": "Continent"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Month Name", 
+        "title": "Month"
+      },
+      {
+        "field": "Flight Count",
+        "title": "Total Flights"
+      }
+    ]
+  }
 }

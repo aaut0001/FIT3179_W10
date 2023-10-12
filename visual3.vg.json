@@ -1,66 +1,65 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-        "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/top_countries_dataset.csv"
+        "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/modified_airline.csv"
     },
-    "facet": {
-        "column": {
+    "title": "Monthly Average Age For Departure (Per Continent)",
+    "width": 800,
+    "height": 600,
+    "mark": {
+        "type": "bar",
+        "cornerRadiusTopLeft": 3,
+        "cornerRadiusTopRight": 3
+    },
+    "transform": [
+        {
+            "timeUnit": "month",
+            "field": "Departure Date",
+            "as": "Departure Date (Month)"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "timeUnit": "yearmonth",
+            "field": "Departure Date (Month)",
+            "type": "nominal",
+            "title": "Month of Departure"
+        },
+        "y": {
+            "aggregate": "mean",
+            "field": "Age",
+            "type": "quantitative",
+            "title": "Age (Avg)"
+        },
+        "xOffset": {
+            "field": "Continents"
+        },
+        "color": {
             "field": "Continents",
-            "type": "ordinal",
-            "header": {
-                "labelAngle": 0
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Africa",
+                    "Asia",
+                    "Europe",
+                    "North America",
+                    "Oceania",
+                    "South America"
+                ],
+                "range": [
+                    "#e7ba52",
+                    "#c7c7c7",
+                    "#aec7e8",
+                    "#1f77b4",
+                    "#9467bd",
+                    "#000000"
+                ]
             }
-        }
-    },
-    "spec": {
-        "mark": "bar",
-        "encoding": {
-            "x": {
-                "field": "Country Name (Total Flights)",
-                "type": "ordinal",
-                "title": "Country"
-            },
-            "y": {
-                "field": "Total Flights",
-                "type": "quantitative",
-                "title": "Total Flights"
-            },
-            "color": {
-                "field": "Rank",
-                "type": "ordinal",
-                "title": "Rank",
-                "scale": {
-                    "domain": [
-                        1,
-                        2,
-                        3
-                    ],
-                    "range": [
-                        "#1f77b4",
-                        "#ff7f0e",
-                        "#2ca02c"
-                    ]
-                }
-            },
-            "tooltip": [
-                {
-                    "field": "Country Name (Total Flights)",
-                    "type": "nominal",
-                    "title": "Country"
-                },
-                {
-                    "field": "Total Flights",
-                    "type": "quantitative",
-                    "title": "Total Flights"
-                }
-            ]
-        }
-    },
-    "config": {
-        "view": {
-            "stroke": "aqua"
-        }
-    },
-    "width": 400,
-    "height": 200
+        },
+        "tooltip": [
+            {"field": "Departure Date", "type": "temporal"},
+            {"field": "Age", "type": "quantitative", "aggregate": "average", "format": ".0f", "title": "Average Age"},
+            {"field": "Continents", "type": "nominal", "title": "Continent"}
+        ]
+    }
 }
