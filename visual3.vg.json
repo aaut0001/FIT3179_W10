@@ -13,17 +13,17 @@
     },
     "transform": [
         {
-            "timeUnit": "month",
+            "timeUnit": "yearmonth",
             "field": "Departure Date",
             "as": "Departure Date (Month)"
         }
     ],
     "encoding": {
         "x": {
-            "timeUnit": "yearmonth",
             "field": "Departure Date (Month)",
             "type": "nominal",
-            "title": "Month of Departure"
+            "title": "Month of Departure",
+            "timeUnit": "yearmonth"
         },
         "y": {
             "aggregate": "mean",
