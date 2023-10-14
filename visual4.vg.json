@@ -5,6 +5,7 @@
     },
     "width": 600,
     "height": 400,
+    "title": "",
     "transform": [
       {
         "aggregate": [
