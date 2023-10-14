@@ -5,12 +5,19 @@
   },
   "width": 680,
   "height": 400,
-  "mark": "bar",
+  "title": "Top Ten Countries by Flights (2022)",
+  "mark": {
+    "type": "bar",
+    "smooth": true,
+    "cornerRadiusTopLeft": 3,
+    "cornerRadiusTopRight": 3
+  },
   "transform": [
     {
-      "timeUnit": "month", 
+      "timeUnit": "yearmonthdate", 
+      "type": "temporal",
       "field": "Departure Date",
-      "as": "Month"
+      "as": "yearmonthdate"
     },
     {
       "aggregate": [
@@ -19,13 +26,33 @@
           "as": "Flight Count"
         }
       ],
-      "groupby": ["Month Name", "Continents"]
+      "groupby": ["Month Name", "Country Name"]
+    },
+    {
+      "filter": {
+        "field": "Flight Count",
+        "range": [100, 1100]
+      }
     }
   ],
   "encoding": {
     "x": {
       "field": "Month Name",
       "type": "nominal", 
+      "sort": [
+        "January",
+        "February", 
+        "March",
+        "April", 
+        "May", 
+        "June", 
+        "July",
+        "August", 
+        "September", 
+        "October",
+        "November",
+        "December"
+      ],
       "axis": {
         "title": "Month", 
         "labelAngle": 45
@@ -40,13 +67,36 @@
       }
     },
     "color": {
-      "field": "Continents", 
+      "field": "Country Name", 
       "type": "nominal", 
       "scale": {
-        "scheme": "tableau10"
+        "domain": [
+          "Australia", 
+          "Brazil", 
+          "Canada", 
+          "China", 
+          "France", 
+          "India", 
+          "Indonesia",
+          "Russian Federation",
+          "United Kingdom",
+          "United States"
+        ],
+        "range": [
+          "#d55e20",
+          "#cc797a",
+          "#0072b2",
+          "#f0e442",
+          "#009e13",
+          "#001158",
+          "#008060",
+          "#48202a",
+          "#ed7d11",
+          "#a64d79"
+        ]
       },
       "legend": {
-        "title": "Continent"
+        "title": "Country"
       }
     },
     "tooltip": [
@@ -57,6 +107,11 @@
       {
         "field": "Flight Count",
         "title": "Total Flights"
+      }, 
+      {
+        "field": "Country Name",
+        "type": "nominal",
+        "title": "Country"
       }
     ]
   }
