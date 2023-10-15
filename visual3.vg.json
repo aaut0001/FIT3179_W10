@@ -32,8 +32,8 @@
         }
     ],
     "title": "(Figure 3) Monthly Average Age Per Flight For Departure (Per Continent)",
-    "width": 800,
-    "height": 600,
+    "width": 600,
+    "height": 400,
     "mark": {
         "type": "bar",
         "cornerRadiusTopLeft": 3,
