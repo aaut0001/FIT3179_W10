@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "width": 400,
     "height": 400,
     "title": "(Figure 1) Most Common & Frequent Airports (2022)",
     "background": "beige",
