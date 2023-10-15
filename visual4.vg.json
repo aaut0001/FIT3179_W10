@@ -1,44 +1,57 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/modified_airline.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/modified_airline.csv"
+  },
+  "width": 600,
+  "height": 400,
+  "background": "beige",
+  "title": "Top Travel Months (2022)",
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "Total Passengers"
+        }
+      ],
+      "groupby": [
+        "Month Name"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "cornerRadiusTopLeft": 3,
+    "cornerRadiusTopRight": 3,
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "Month Name",
+      "type": "ordinal",
+      "title": "Month",
+      "sort": "-y"
     },
-    "width": 600,
-    "height": 400,
-    "title": "",
-    "transform": [
+    "y": {
+      "field": "Total Passengers",
+      "type": "quantitative",
+      "title": "Total Passengers"
+    },
+    "color": {
+      
+    },
+    "tooltip": [
       {
-        "aggregate": [
-          {"op": "count", "as": "Total Passengers"}
-        ],
-        "groupby": ["Month Name"]
-      }
-    ],
-    "mark": "bar",
-    "encoding": {
-      "x": {
         "field": "Month Name",
-        "type": "ordinal",
-        "title": "Month",
-        "sort": "-y"
+        "type": "nominal",
+        "title": "Month"
       },
-      "y": {
+      {
         "field": "Total Passengers",
         "type": "quantitative",
         "title": "Total Passengers"
-      },
-      "tooltip": [
-        {
-          "field": "Month Name",
-          "type": "nominal",
-          "title": "Month"
-        },
-        {
-          "field": "Total Passengers",
-          "type": "quantitative",
-          "title": "Total Passengers"
-        }
-      ]
-    }
+      }
+    ]
   }
-  
+}

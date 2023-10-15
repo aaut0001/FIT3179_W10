@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
     "height": 600,
-    "title": "Airport Density Dot Plot (2023)",
+    "title": "Most Common & Frequent Airports (2022)",
     "projection": {
         "type": "equalEarth"
     },
@@ -47,14 +47,9 @@
             "data": {
                 "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_A2/main/airport_info.csv"
             },
-            "transform": [
-                {
-                    "filter": "datum.Frequency >= 13"
-                }
-            ],
             "mark": {
                 "type": "circle",
-                "color": "red"
+                "color": "#eb000c"
             },
             "encoding": {
                 "longitude": {
@@ -66,15 +61,21 @@
                     "type": "quantitative"
                 },
                 "size": {
-                    "value": 17.75
+                    "field": "Frequency",
+                    "type": "quantitative",
+                    "scale": {
+                        "domain": [17, 100, 120]
+                    }
                 },
                 "tooltip": [
                     {
                         "field": "Airport Name",
+                        "type": "nominal",
                         "title": "Airport Name"
                     },
                     {
                         "field": "Frequency",
+                        "type": "quantitative",
                         "title": "Frequency"
                     },
                     {
@@ -85,16 +86,7 @@
                         "field": "Longitude",
                         "title": "Longitude"
                     }
-                ],
-                "color": {
-                    "field": "Frequency",
-                    "type": "quantitative",
-                    "title": "Number of Visits",
-                    "scale": {
-                        "domain": [13, 15],
-                        "range": ["white", "red"]
-                    }
-                }
+                ]
             }
         }
     ]

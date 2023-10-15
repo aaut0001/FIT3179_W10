@@ -5,7 +5,8 @@
   },
   "width": 680,
   "height": 400,
-  "title": "Top Ten Countries by Flights (2022)",
+  "title": "Most Active Months by Flights/Country (2022)",
+  "background": "beige",
   "mark": {
     "type": "bar",
     "smooth": true,
