@@ -22,5 +22,10 @@ p {
     color: #000710;
     font-size: 16px;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 80px;
+}
+
+smalltext {
+    color: black;
+    font-size: 11px;
 }
