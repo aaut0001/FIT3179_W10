@@ -2,7 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
     "height": 600,
-    "title": "Most Common & Frequent Airports (2022)",
+    "title": "(Figure 1) Most Common & Frequent Airports (2022)",
+    "background": "beige",
     "projection": {
         "type": "equalEarth"
     },
@@ -64,7 +65,7 @@
                     "field": "Frequency",
                     "type": "quantitative",
                     "scale": {
-                        "domain": [17, 100, 120]
+                        "domain": [17, 100, 130]
                     }
                 },
                 "tooltip": [

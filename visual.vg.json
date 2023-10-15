@@ -5,7 +5,7 @@
   },
   "width": 680,
   "height": 400,
-  "title": "Most Active Months by Flights/Country (2022)",
+  "title": "(Figure 2) Most Active Months by Flights/Country (2022)",
   "background": "beige",
   "mark": {
     "type": "bar",
