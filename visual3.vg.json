@@ -3,19 +3,50 @@
     "data": {
         "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/modified_airline.csv"
     },
-    "title": "Monthly Average Age For Departure (Per Continent)",
+    "params": [
+        {
+            "name": "continent_selection",
+            "bind": {
+                "input": "select", 
+                "options": [
+                    null, 
+                    "Africa", 
+                    "Asia",
+                    "Europe",
+                    "North America",
+                    "Oceania", 
+                    "South America"
+                ],
+                "labels": [
+                    "show all",
+                    "Africa", 
+                    "Asia", 
+                    "Europe",
+                    "North America",
+                    "Oceania", 
+                    "South America"
+                ],
+                "name": "Continent Select"
+            }
+        }
+    ],
+    "title": "Monthly Average Age Per Flight For Departure (Per Continent)",
     "width": 800,
     "height": 600,
     "mark": {
         "type": "bar",
         "cornerRadiusTopLeft": 3,
-        "cornerRadiusTopRight": 3
+        "cornerRadiusTopRight": 3,
+        "strokeWidth": 2
     },
     "transform": [
         {
             "timeUnit": "yearmonth",
             "field": "Departure Date",
             "as": "Departure Date (Month)"
+        },
+        {
+            "filter": "continent_selection == null || datum.Continents == continent_selection"
         }
     ],
     "encoding": {
@@ -30,6 +61,25 @@
             "field": "Age",
             "type": "quantitative",
             "title": "Age (Avg)"
+        },
+        "stroke": {
+            "condition": {
+                "param": "continent_selection", 
+                "empty": false,
+                "value": "red",
+                "strokeWidth": 2
+            },
+            "value": null
+        },
+        "opacity": {
+            "value": 0.6
+        },
+        "order": {
+            "condition": {
+                "param": "continent_selection", 
+                "value": 1
+            }, 
+            "value": 0
         },
         "xOffset": {
             "field": "Continents"

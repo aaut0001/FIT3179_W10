@@ -15,7 +15,6 @@
   "transform": [
     {
       "timeUnit": "yearmonthdate", 
-      "type": "temporal",
       "field": "Departure Date",
       "as": "yearmonthdate"
     },
