@@ -3,8 +3,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/aaut0001/FIT3179_W10/main/modified_airline.csv"
   },
-  "width": 680,
-  "height": 400,
+  "width": 800,
+  "height": 600,
   "title": "(Figure 2) Most Active Months by Flights/Country (2022)",
   "background": "beige",
   "mark": {

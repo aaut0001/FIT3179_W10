@@ -1,6 +1,10 @@
 html,
 body {
     background-color: #F3FAF9;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #F3FAF9;
+    line-height: 1.6;
 }
 
 #text_div {
@@ -9,16 +13,20 @@ body {
 }
 
 h1 {
+    font-family: 'Lato' sans-serif;
     text-align: center;
     font-size: 40px;
     border-radius: 25px;
     border: 2px solid #73AD21;
-    padding: 20px;
-    width: 400;
+    padding: 10px;
+    width: 400px;
     height: 150px;
+    background-color: bisque;
 }
 
 p {
+    font-family: 'Lato' sans-serif;
+    font: bold;
     color: #000710;
     font-size: 16px;
     text-align: center;
@@ -28,4 +36,13 @@ p {
 smalltext {
     color: black;
     font-size: 11px;
+}
+
+#box {
+    border-radius: 25px;
+    border: 2px solid #05c7f3;
+    padding: 20px;
+    width: screen;
+    height: screen;
+    background-color: rgb(249, 201, 142);
 }
